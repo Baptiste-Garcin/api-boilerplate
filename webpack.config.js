@@ -23,11 +23,6 @@ module.exports = {
   node: {
     __dirname: false
   },
-  module: {
-    rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
-    ]
-  },
   externals: nodeModules,
   plugins: [
     new webpack.BannerPlugin({ banner: 'require("source-map-support").install();',
