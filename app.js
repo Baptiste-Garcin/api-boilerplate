@@ -3,9 +3,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var index = require('./routes/index');
-var users = require('./routes/users');
-var app = express();
-// require('file-loader?name=/views/index.html!./views/index.html');
+const app = express();
+require('file-loader?name=/views/index.html!./views/index.html');
 
 
 app.use(logger('dev'));
