@@ -2,7 +2,5 @@
   "name": "tourismatik",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "postinstall": "npm install source-map-support"
-  }
+
 }
