@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
+import express from 'express';
+import path from 'path';
 const router = express.Router();
 
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-module.exports = router;
+export default router;
