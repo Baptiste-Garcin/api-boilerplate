@@ -24,11 +24,6 @@ module.exports = {
     __dirname: false
   },
   externals: nodeModules,
-  module: {
-    rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
-    ]
-  },
   plugins: [
     new webpack.BannerPlugin({ banner: 'require("source-map-support").install();',
       raw: true,
