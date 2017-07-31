@@ -15,7 +15,8 @@
     "express": "~4.15.2",
     "morgan": "~1.8.1",
     "nodemon": "^1.11.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "source-map-support": "^0.4.15"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
