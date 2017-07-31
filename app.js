@@ -14,9 +14,7 @@ app.use(cookieParser());
 
 app.use('/', index);
 
-app.get('/favicon.ico', (req, res) =>
-  res.status(204),
-);
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
