@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/bundle.js",
-    "dev": "npm-run-all --parallel watch:webpack watch:server",
-    "watch:webpack": "./node_modules/.bin/webpack --watch",
-    "watch:server": "./node_modules/.bin/nodemon dist/bundle"
+    "deploy": "git subtree push — prefix dist heroku master"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
