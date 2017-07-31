@@ -1,14 +1,13 @@
-var path = require('path');
-var fs = require('fs');
-var webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const webpack = require('webpack');
+
 const nodeModules = {};
 
 fs.readdirSync('node_modules')
-  .filter(x =>
-    ['.bin'].indexOf(x) === -1
-  )
-  .forEach(mod => {
-    nodeModules[mod] = 'commonjs ' + mod;
+  .filter(x => ['.bin'].indexOf(x) === -1)
+  .forEach((mod) => {
+    nodeModules[mod] = `commonjs ${mod}`;
   });
 
 module.exports = {
@@ -18,15 +17,15 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   node: {
-    __dirname: false
+    __dirname: false,
   },
   externals: nodeModules,
   plugins: [
     new webpack.BannerPlugin({ banner: 'require("source-map-support").install();',
       raw: true,
-      entryOnly: false })
-  ]
+      entryOnly: false }),
+  ],
 };

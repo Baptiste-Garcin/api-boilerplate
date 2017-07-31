@@ -3,6 +3,7 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import index from './routes/index';
+
 const app = express();
 
 app.use(logger('dev'));
@@ -14,12 +15,12 @@ app.use(cookieParser());
 app.use('/', index);
 
 app.get('/favicon.ico', (req, res) =>
-  res.status(204)
+  res.status(204),
 );
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
