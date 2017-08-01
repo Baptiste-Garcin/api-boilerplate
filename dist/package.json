@@ -4,5 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node bundle.js"
+  },
+  "dependencies": {
+    "source-map-support": "@latest"
   }
 }
