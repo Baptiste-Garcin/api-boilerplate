@@ -6,6 +6,6 @@
     "start": "node bundle.js"
   },
   "dependencies": {
-    "source-map-support": "@latest"
+    "source-map-support": "^0.4.15 "
   }
 }
