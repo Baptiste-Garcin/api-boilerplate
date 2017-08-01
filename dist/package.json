@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node bundle.js",
+    "start": "node bundle.js"
   }
 }
