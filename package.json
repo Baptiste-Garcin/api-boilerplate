@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/bundle.js",
+    "dev": "./node_modules/.bin/nodemon ./dist/bundle.js",
     "build": "./node_modules/.bin/webpack",
     "deploy": "./deploy.sh"
   },
