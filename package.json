@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/bundle.js",
-    "deploy": "git subtree push — prefix dist heroku prod:master"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
