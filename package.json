@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/bundle.js",
-    "deploy": "COMMIT=$(git subtree split --prefix dist); git push heroku $COMMIT:master --force"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
