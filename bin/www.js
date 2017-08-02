@@ -3,7 +3,6 @@
 /**
  * Module dependencies.
  */
-import app from '../app';
 import {
   normalizePort,
   onError,
@@ -11,12 +10,7 @@ import {
   server,
 } from './serverUtil';
 
-/**
- * Get port from environment and store in Express.
- */
-
 const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
 
 /**
  * Listen on provided port, on all network interfaces.

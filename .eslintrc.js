@@ -3,6 +3,7 @@ module.exports = {
     "plugins": ["flowtype"],
     "parser": "babel-eslint",
     rules: {
-      "no-console": ["error", { allow: ["warn", "error"] }]
+      "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+      "no-console": ["error", { allow: ["warn", "error"] }],
     }
 };
