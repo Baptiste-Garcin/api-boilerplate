@@ -12,7 +12,7 @@ fs.readdirSync('node_modules')
 
 module.exports = {
   devtool: 'sourcemap',
-  entry: './bin/www',
+  entry: './bin/www.js',
   target: 'node',
   output: {
     path: path.join(__dirname, '/dist'),
@@ -28,4 +28,11 @@ module.exports = {
       raw: true,
       entryOnly: false }),
   ],
+  module: {
+    rules: [{
+      test: /\.jsx?$/,
+      enforce: 'pre',
+      use: ['remove-flow-types-loader'],
+    }],
+  },
 };

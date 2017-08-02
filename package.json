@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/bundle.js",
+    "dev": "./node_modules/.bin/nodemon ./dist/bundle.js",
     "build": "./node_modules/.bin/webpack",
     "deploy": "./deploy.sh"
   },
@@ -23,14 +24,17 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
-    "file-loader": "^0.11.2",
-    "npm-run-all": "^4.0.2",
+    "flow-bin": "^0.51.1",
+    "flow-remove-types": "^1.2.1",
+    "flow-typed": "^2.1.5",
+    "remove-flow-types-loader": "^1.0.0",
     "webpack": "^3.4.1"
   }
 }

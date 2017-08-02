@@ -1,5 +1,7 @@
+/* @flow */
 import http from 'http';
 import debugPackage from 'debug';
+import type { $ErrnoError } from 'express';
 import app from '../app';
 
 const debug = debugPackage('tourismatik:server');
@@ -8,7 +10,7 @@ const debug = debugPackage('tourismatik:server');
  * Normalize a port into a number, string, or false.
  */
 
-export function normalizePort(val) {
+export function normalizePort(val: string): string | number | boolean {
   const normalizedport = parseInt(val, 10);
 
   if (isNaN(normalizedport)) {
@@ -28,15 +30,15 @@ export function normalizePort(val) {
  * Create HTTP server.
  */
 
-export const server = http.createServer(app);
+export const server: Server = http.createServer(app);
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 
-export function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
+export function onListening(): void {
+  const addr: net$Socket$address = server.address();
+  const bind: string = typeof addr === 'string'
     ? `pipe ${addr}`
     : `pipe ${addr.port}`;
   debug(`Listening on + ${bind}`);
@@ -46,14 +48,14 @@ export function onListening() {
  * Event listener for HTTP server "error" event.
  */
 
-export function onError(error) {
+export function onError(error: $ErrnoError): void {
   const port = normalizePort(process.env.PORT || '3000');
   if (error.syscall !== 'listen') {
     throw error;
   }
-  const bind = typeof port === 'string'
+  const bind: string = typeof port === 'string'
     ? `Pipe ${port}`
-    : `Port ${port}`;
+    : `Port ${port.toString()}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
