@@ -15,32 +15,6 @@ export default class Application {
     this.routes();
   }
 
-  // middleware(): void {
-  //   this.express.use(logger('dev'));
-  //   this.express.use(bodyParser.json());
-  //   this.express.use(bodyParser.urlencoded({extended: false}));
-  //   /**
-  //   * 404 handler
-  //   */
-  //   this.express.use((req: $Request, res: $Response, next: NextFunction): void => {
-  //     const err: $ErrnoError = new Error('Not Found');
-  //     err.status = 404;
-  //     next(err);
-  //   });
-  //   /**
-  //   * Errro handler
-  //   */
-  //   this.express.use((error: ?Error, req: $Request, res: $Response) => {
-  //     if (error) {
-  //       res.locals.message = error.message;
-  //       res.locals.error = req.app.get('env') === 'development' ? error : {};
-  //
-  //       // render the error page
-  //       res.status(error.status || 500);
-  //       res.render('error');
-  //     }
-  //   });
-  // }
   middleware(): void {
     this.express.use(logger('dev'));
     this.express.use(bodyParser.json());
