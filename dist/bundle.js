@@ -61,76 +61,22 @@ require("source-map-support").install();
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_morgan__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cookie_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_body_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_index__ = __webpack_require__(6);
-
-
-
-
-
-
-const app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
-
-app.use(__WEBPACK_IMPORTED_MODULE_1_morgan___default()('dev'));
-app.use(__WEBPACK_IMPORTED_MODULE_3_body_parser___default.a.json());
-app.use(__WEBPACK_IMPORTED_MODULE_3_body_parser___default.a.urlencoded({ extended: false }));
-app.use(__WEBPACK_IMPORTED_MODULE_2_cookie_parser___default()());
-
-
-app.use('/', __WEBPACK_IMPORTED_MODULE_4__routes_index__["a" /* default */]);
-
-app.get('/favicon.ico', (req, res) => res.status(204));
-
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handler
-app.use((err, req, res) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-/* harmony default export */ __webpack_exports__["a"] = (app);
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__serverUtil__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__serverUtil__ = __webpack_require__(2);
 /*       */
 
 /**
@@ -138,76 +84,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 
-
-
-/**
- * Get port from environment and store in Express.
- */
-
-const port = Object(__WEBPACK_IMPORTED_MODULE_1__serverUtil__["a" /* normalizePort */])(process.env.PORT || '3000');
-__WEBPACK_IMPORTED_MODULE_0__app__["a" /* default */].set('port', port);
+const port = Object(__WEBPACK_IMPORTED_MODULE_0__serverUtil__["a" /* normalizePort */])(process.env.PORT || '3000');
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-__WEBPACK_IMPORTED_MODULE_1__serverUtil__["d" /* server */].listen(port);
-__WEBPACK_IMPORTED_MODULE_1__serverUtil__["d" /* server */].on('error', __WEBPACK_IMPORTED_MODULE_1__serverUtil__["b" /* onError */]);
-__WEBPACK_IMPORTED_MODULE_1__serverUtil__["d" /* server */].on('listening', __WEBPACK_IMPORTED_MODULE_1__serverUtil__["c" /* onListening */]);
+__WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].listen(port);
+__WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].on('error', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["b" /* onError */]);
+__WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].on('listening', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["c" /* onListening */]);
 
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("morgan");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("cookie-parser");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("body-parser");
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-
-
-const router = __WEBPACK_IMPORTED_MODULE_0_express___default.a.Router();
-
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.json({ success: 'true' });
-});
-
-/* harmony default export */ __webpack_exports__["a"] = (router);
-
-
-/***/ }),
-/* 7 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = normalizePort;
 /* harmony export (immutable) */ __webpack_exports__["c"] = onListening;
 /* harmony export (immutable) */ __webpack_exports__["b"] = onError;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_http__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_debug__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(5);
+/*       */
 
 
+                                           
+
+
+const app = new __WEBPACK_IMPORTED_MODULE_2__app__["a" /* default */]();
+const server         = __WEBPACK_IMPORTED_MODULE_0_http___default.a.createServer(app.express);
+/* harmony export (immutable) */ __webpack_exports__["d"] = server;
 
 
 const debug = __WEBPACK_IMPORTED_MODULE_1_debug___default()('tourismatik:server');
@@ -216,7 +125,7 @@ const debug = __WEBPACK_IMPORTED_MODULE_1_debug___default()('tourismatik:server'
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val        )                            {
   const normalizedport = parseInt(val, 10);
 
   if (isNaN(normalizedport)) {
@@ -233,20 +142,12 @@ function normalizePort(val) {
 }
 
 /**
- * Create HTTP server.
- */
-
-const server = __WEBPACK_IMPORTED_MODULE_0_http___default.a.createServer(__WEBPACK_IMPORTED_MODULE_2__app__["a" /* default */]);
-/* harmony export (immutable) */ __webpack_exports__["d"] = server;
-
-
-/**
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
+function onListening()       {
+  const addr                     = server.address();
+  const bind         = typeof addr === 'string'
     ? `pipe ${addr}`
     : `pipe ${addr.port}`;
   debug(`Listening on + ${bind}`);
@@ -256,14 +157,14 @@ function onListening() {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error             )       {
   const port = normalizePort(process.env.PORT || '3000');
   if (error.syscall !== 'listen') {
     throw error;
   }
-  const bind = typeof port === 'string'
+  const bind         = typeof port === 'string'
     ? `Pipe ${port}`
-    : `Port ${port}`;
+    : `Port ${port.toString()}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -282,16 +183,159 @@ function onError(error) {
 
 
 /***/ }),
-/* 8 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");
 
 /***/ }),
-/* 9 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("debug");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_morgan__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cookie_parser__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_body_parser__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_MainRouter__ = __webpack_require__(9);
+/*       */
+
+
+
+
+                                                         
+
+
+class Application {
+                               
+
+  constructor() {
+    this.express = __WEBPACK_IMPORTED_MODULE_0_express___default()();
+    this.middleware();
+    this.routes();
+  }
+
+  // middleware(): void {
+  //   this.express.use(logger('dev'));
+  //   this.express.use(bodyParser.json());
+  //   this.express.use(bodyParser.urlencoded({extended: false}));
+  //   /**
+  //   * 404 handler
+  //   */
+  //   this.express.use((req: $Request, res: $Response, next: NextFunction): void => {
+  //     const err: $ErrnoError = new Error('Not Found');
+  //     err.status = 404;
+  //     next(err);
+  //   });
+  //   /**
+  //   * Errro handler
+  //   */
+  //   this.express.use((error: ?Error, req: $Request, res: $Response) => {
+  //     if (error) {
+  //       res.locals.message = error.message;
+  //       res.locals.error = req.app.get('env') === 'development' ? error : {};
+  //
+  //       // render the error page
+  //       res.status(error.status || 500);
+  //       res.render('error');
+  //     }
+  //   });
+  // }
+  middleware()       {
+    this.express.use(__WEBPACK_IMPORTED_MODULE_1_morgan___default()('dev'));
+    this.express.use(__WEBPACK_IMPORTED_MODULE_3_body_parser___default.a.json());
+    this.express.use(__WEBPACK_IMPORTED_MODULE_3_body_parser___default.a.urlencoded({ extended: false }));
+    this.express.use(__WEBPACK_IMPORTED_MODULE_2_cookie_parser___default()());
+    this.express.use((error        , req          , res           , next              ) => {
+      if (error) {
+        res.locals.message = error.message;
+        res.locals.error = req.app.get('env') === 'development' ? error : {};
+
+        res.status(error.status || 500);
+        res.json({ error: error.message });
+      }
+    });
+  }
+
+  routes()       {
+    const mainRouter = new __WEBPACK_IMPORTED_MODULE_4__routes_MainRouter__["a" /* default */]();
+    this.express.use(mainRouter.path, mainRouter.router);
+    this.express.use((req          , res           , next              )       => {
+      const err              = new Error('Not Found');
+      err.status = 404;
+      next(err);
+    });
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Application;
+
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("morgan");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("cookie-parser");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("body-parser");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
+/*       */
+
+
+class MainRouter {
+                 
+               
+
+  constructor(path         = '/api')       {
+    this.router = Object(__WEBPACK_IMPORTED_MODULE_0_express__["Router"])();
+    this.path = path;
+    this.init();
+  }
+
+  static index(req          , res           )       {
+    res.status(200).json({
+      success: 'true',
+    });
+  }
+
+  init()       {
+    this.router.get('/', (req          , res           ) => {
+      res.status(200).json({
+        success: 'true',
+      });
+    });
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = MainRouter;
+
+
 
 /***/ })
 /******/ ]);
