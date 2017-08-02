@@ -1,5 +1,6 @@
 module.exports = {
-    "extends": ["airbnb-base/legacy"  , "airbnb"],
+    "extends": ["airbnb-base/legacy", "airbnb", "plugin:flowtype/recommended"],
+    "plugins": ["flowtype"],
     "parser": "babel-eslint",
     rules: {
       "no-console": ["error", { allow: ["warn", "error"] }]

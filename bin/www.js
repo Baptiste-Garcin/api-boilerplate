@@ -1,9 +1,15 @@
+/* @flow */
+
 /**
  * Module dependencies.
  */
-
 import app from '../app';
-import { normalizePort, onError, onListening, server } from './serverUtil';
+import {
+  normalizePort,
+  onError,
+  onListening,
+  server,
+} from './serverUtil';
 
 /**
  * Get port from environment and store in Express.
