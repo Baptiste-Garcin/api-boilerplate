@@ -1,7 +1,8 @@
 /* @flow */
-import { Schema, mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
-const schema: Schema = new Schema({
+export const Schema = mongoose.Schema;
+const schema = new Schema({
   title: {
     type: String,
     required: true,
