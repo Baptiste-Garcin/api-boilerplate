@@ -2,6 +2,7 @@
 import http from 'http';
 import debugPackage from 'debug';
 import type { $ErrnoError } from 'express';
+import mongoose from 'mongoose';
 import Application from '../app';
 
 const app = new Application();
@@ -67,4 +68,16 @@ export function onError(error: $ErrnoError): void {
     default:
       throw error;
   }
+}
+
+/**
+ * Connection to database
+ */
+
+export function dbConnect() {
+  mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/tourismatik', { useMongoClient: true }, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
 }

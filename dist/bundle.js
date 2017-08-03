@@ -84,15 +84,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 
-const port = Object(__WEBPACK_IMPORTED_MODULE_0__serverUtil__["a" /* normalizePort */])(process.env.PORT || '3000');
+const port = Object(__WEBPACK_IMPORTED_MODULE_0__serverUtil__["b" /* normalizePort */])(process.env.PORT || '3000');
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-__WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].listen(port);
-__WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].on('error', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["b" /* onError */]);
-__WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].on('listening', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["c" /* onListening */]);
+Object(__WEBPACK_IMPORTED_MODULE_0__serverUtil__["a" /* dbConnect */])();
+__WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].listen(port);
+__WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].on('error', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["c" /* onError */]);
+__WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].on('listening', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* onListening */]);
 
 
 /***/ }),
@@ -100,23 +101,27 @@ __WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* server */].on('listening', __WE
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = normalizePort;
-/* harmony export (immutable) */ __webpack_exports__["c"] = onListening;
-/* harmony export (immutable) */ __webpack_exports__["b"] = onError;
+/* harmony export (immutable) */ __webpack_exports__["b"] = normalizePort;
+/* harmony export (immutable) */ __webpack_exports__["d"] = onListening;
+/* harmony export (immutable) */ __webpack_exports__["c"] = onError;
+/* harmony export (immutable) */ __webpack_exports__["a"] = dbConnect;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_http__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_debug__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mongoose__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mongoose__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(6);
 /*       */
 
 
                                            
 
 
-const app = new __WEBPACK_IMPORTED_MODULE_2__app__["a" /* default */]();
+
+const app = new __WEBPACK_IMPORTED_MODULE_3__app__["a" /* default */]();
 const server         = __WEBPACK_IMPORTED_MODULE_0_http___default.a.createServer(app.express);
-/* harmony export (immutable) */ __webpack_exports__["d"] = server;
+/* harmony export (immutable) */ __webpack_exports__["e"] = server;
 
 
 const debug = __WEBPACK_IMPORTED_MODULE_1_debug___default()('tourismatik:server');
@@ -181,6 +186,18 @@ function onError(error             )       {
   }
 }
 
+/**
+ * Connection to database
+ */
+
+function dbConnect() {
+  __WEBPACK_IMPORTED_MODULE_2_mongoose___default.a.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/tourismatik', { useMongoClient: true }, (err) => {
+    if (err) {
+      console.error(err);
+    }
+  });
+}
+
 
 /***/ }),
 /* 3 */
@@ -196,18 +213,24 @@ module.exports = require("debug");
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("mongoose");
+
+/***/ }),
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_morgan__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cookie_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_body_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_MainRouter__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_MainRouter__ = __webpack_require__(10);
 /*       */
 
 
@@ -256,25 +279,25 @@ class Application {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("morgan");
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("cookie-parser");
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
