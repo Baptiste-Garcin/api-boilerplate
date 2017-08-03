@@ -3,7 +3,7 @@ import http from 'http';
 import debugPackage from 'debug';
 import type { $ErrnoError } from 'express';
 import mongoose from 'mongoose';
-import Application from '../app/app';
+import Application from '../app';
 
 const app = new Application();
 export const server: Server = http.createServer(app.express);
