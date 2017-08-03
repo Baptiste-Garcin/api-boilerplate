@@ -5,8 +5,7 @@
   "scripts": {
     "clean": "find ./dist -type f ! -name '*.json' -delete",
     "prestart": "npm run clean",
-    "start": "./node_modules/.bin/webpack",
-    "poststart": "webpack --watch",
+    "start": "./node_modules/.bin/webpack --watch",
     "build": "BUILD=true ./node_modules/.bin/webpack",
     "deploy": "./deploy.sh"
   },
