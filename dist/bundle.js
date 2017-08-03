@@ -111,7 +111,7 @@ __WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].on('listening', __WE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_debug__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mongoose__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mongoose__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app__ = __webpack_require__(6);
 /*       */
 
 
@@ -119,7 +119,7 @@ __WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].on('listening', __WE
 
 
 
-const app = new __WEBPACK_IMPORTED_MODULE_3__app__["a" /* default */]();
+const app = new __WEBPACK_IMPORTED_MODULE_3__app_app__["a" /* default */]();
 const server         = __WEBPACK_IMPORTED_MODULE_0_http___default.a.createServer(app.express);
 /* harmony export (immutable) */ __webpack_exports__["e"] = server;
 
@@ -316,16 +316,10 @@ class MainRouter {
     this.init();
   }
 
-  static index(req          , res           )       {
-    res.status(200).json({
-      success: 'true',
-    });
-  }
-
   init()       {
     this.router.get('/', (req          , res           ) => {
       res.status(200).json({
-        success: 'true',
+        success: true,
       });
     });
   }

@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
-const WebpackShellPlugin = require('webpack-shell-plugin')
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 const nodeModules = {};
 
@@ -11,12 +11,12 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = `commonjs ${mod}`;
   });
 
-plugins = [
+const plugins = [
   new webpack.BannerPlugin({ banner: 'require("source-map-support").install();', raw: true, entryOnly: false }),
-]
+];
 
 if (!process.env.BUILD) {
-  plugins.push(new WebpackShellPlugin({onBuildEnd: ['nodemon dist/bundle.js --watch dist']}))
+  plugins.push(new WebpackShellPlugin({ onBuildEnd: ['nodemon dist/bundle.js --watch dist'] }));
 }
 
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
     __dirname: false,
   },
   externals: nodeModules,
-  plugins: plugins,
+  plugins,
   module: {
     rules: [{
       test: /\.jsx?$/,
