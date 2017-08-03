@@ -11,10 +11,16 @@ export default class MainRouter {
     this.init();
   }
 
+  static index(req: $Request, res: $Response): void {
+    res.status(200).json({
+      success: 'true',
+    });
+  }
+
   init(): void {
     this.router.get('/', (req: $Request, res: $Response) => {
       res.status(200).json({
-        success: true,
+        success: 'true',
       });
     });
   }

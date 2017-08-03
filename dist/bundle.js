@@ -316,10 +316,16 @@ class MainRouter {
     this.init();
   }
 
+  static index(req          , res           )       {
+    res.status(200).json({
+      success: 'true',
+    });
+  }
+
   init()       {
     this.router.get('/', (req          , res           ) => {
       res.status(200).json({
-        success: true,
+        success: 'true',
       });
     });
   }
