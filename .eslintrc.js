@@ -5,5 +5,9 @@ module.exports = {
     rules: {
       "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
       "no-console": ["error", { allow: ["warn", "error"] }],
+      "id-length": "error",
+      "camelcase": "error",
+      "new-cap": "error",
+      "no-underscore-dangle": "error"
     }
 };

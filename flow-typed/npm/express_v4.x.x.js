@@ -149,7 +149,7 @@ declare class express$Router extends express$Route {
   $call: (req: http$IncomingMessage, res: http$ServerResponse, next?: ?express$NextFunction) => void;
 }
 
-declare class express$Application mixins events$EventEmitter {
+declare class express$Application extends net$Socket mixins events$EventEmitter {
   constructor(): void;
   locals: {[name: string]: mixed};
   mountpath: string;
@@ -170,7 +170,7 @@ declare class express$Application mixins events$EventEmitter {
   /**
    * Mixed will not be taken as a value option. Issue around using the GET http method name and the get for settings.
    */
-  get(name: string, callback?: Function): mixed;
+  get(name: string, express$Middleware): mixed | void;
   set(name: string, value: mixed): mixed;
   render(name: string, optionsOrFunction: {[name: string]: mixed}, callback: express$RenderCallback): void;
   $call: (req: http$IncomingMessage, res: http$ServerResponse, next?: ?express$NextFunction) => void;

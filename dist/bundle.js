@@ -61,7 +61,7 @@ require("source-map-support").install();
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,192 +72,125 @@ module.exports = require("express");
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__serverUtil__ = __webpack_require__(2);
-/*       */
-
-/**
- * Module dependencies.
- */
-
-
-const port = Object(__WEBPACK_IMPORTED_MODULE_0__serverUtil__["b" /* normalizePort */])(process.env.PORT || '3000');
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-Object(__WEBPACK_IMPORTED_MODULE_0__serverUtil__["a" /* dbConnect */])();
-__WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].listen(port);
-__WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].on('error', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["c" /* onError */]);
-__WEBPACK_IMPORTED_MODULE_0__serverUtil__["e" /* server */].on('listening', __WEBPACK_IMPORTED_MODULE_0__serverUtil__["d" /* onListening */]);
-
+module.exports = require("mongoose");
 
 /***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = normalizePort;
-/* harmony export (immutable) */ __webpack_exports__["d"] = onListening;
-/* harmony export (immutable) */ __webpack_exports__["c"] = onError;
-/* harmony export (immutable) */ __webpack_exports__["a"] = dbConnect;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_http___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_http__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_debug___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_debug__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mongoose__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_mongoose__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(6);
-/*       */
-
-
-                                           
-
-
-
-const app = new __WEBPACK_IMPORTED_MODULE_3__app__["a" /* default */]();
-const server         = __WEBPACK_IMPORTED_MODULE_0_http___default.a.createServer(app.express);
-/* harmony export (immutable) */ __webpack_exports__["e"] = server;
-
-
-const debug = __WEBPACK_IMPORTED_MODULE_1_debug___default()('tourismatik:server');
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val        )                            {
-  const normalizedport = parseInt(val, 10);
-
-  if (isNaN(normalizedport)) {
-    // named pipe
-    return val;
-  }
-
-  if (normalizedport >= 0) {
-    // port number
-    return normalizedport;
-  }
-
-  return false;
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening()       {
-  const addr                     = server.address();
-  const bind         = typeof addr === 'string'
-    ? `pipe ${addr}`
-    : `pipe ${addr.port}`;
-  debug(`Listening on + ${bind}`);
-}
-
-/**
- * Event listener for HTTP server "error" event.
- */
-
-function onError(error             )       {
-  const port = normalizePort(process.env.PORT || '3000');
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-  const bind         = typeof port === 'string'
-    ? `Pipe ${port}`
-    : `Port ${port.toString()}`;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(`${bind} requires elevated privileges`);
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(`${bind} is already in use`);
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Connection to database
- */
-
-function dbConnect() {
-  __WEBPACK_IMPORTED_MODULE_2_mongoose___default.a.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/tourismatik', { useMongoClient: true }, (err) => {
-    if (err) {
-      console.error(err);
-    }
-  });
-}
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("http");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("debug");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("mongoose");
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_morgan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_morgan__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_cookie_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_cookie_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_body_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__routes_MainRouter__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mongoose__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_mongoose__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_debug__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_debug___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_debug__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_PostRouter__ = __webpack_require__(7);
 /*       */
 
 
 
 
+
+
+                                      
                                                          
 
 
 class Application {
                                
+                        
+                    
+                  
+                    
 
   constructor() {
+    this.DEFAULT_PORT = 3000;
+    this.port = this.normalizePort(process.env.PORT || '3000');
+    this.mongodURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/tourismatik';
     this.express = __WEBPACK_IMPORTED_MODULE_0_express___default()();
+    this.debug = __WEBPACK_IMPORTED_MODULE_5_debug___default()('tourismatik:server');
+    this.dbConnect();
     this.middleware();
     this.routes();
+    this.start();
   }
 
+  normalizePort(val        )                  {
+    const normalizedport = parseInt(val, 10);
+
+    if (isNaN(normalizedport)) {
+      // named pipe
+      return val;
+    }
+
+    if (normalizedport >= 0) {
+      // port number
+      return normalizedport;
+    }
+
+    return this.DEFAULT_PORT;
+  }
+
+  onListening()       {
+    const addr                     = this.express.address();
+    const bind         = typeof addr === 'string'
+      ? `pipe ${addr}`
+      : `pipe ${addr.port}`;
+    this.debug(`Listening on + ${bind}`);
+  }
+
+  onError(error             )       {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+    const bind         = typeof this.port === 'string'
+      ? `Pipe ${this.port}`
+      : `Port ${this.port.toString()}`;
+
+    switch (error.code) {
+      case 'EACCES':
+        console.error(`${bind} requires elevated privileges`);
+        process.exit(1);
+        break;
+      case 'EADDRINUSE':
+        console.error(`${bind} is already in use`);
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+  }
+
+  dbConnect()       {
+    __WEBPACK_IMPORTED_MODULE_4_mongoose___default.a.Promise = global.Promise;
+    __WEBPACK_IMPORTED_MODULE_4_mongoose___default.a.connect(this.mongodURI, { useMongoClient: true }, (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
+  }
   middleware()       {
     this.express.use(__WEBPACK_IMPORTED_MODULE_1_morgan___default()('dev'));
     this.express.use(__WEBPACK_IMPORTED_MODULE_3_body_parser___default.a.json());
     this.express.use(__WEBPACK_IMPORTED_MODULE_3_body_parser___default.a.urlencoded({ extended: false }));
     this.express.use(__WEBPACK_IMPORTED_MODULE_2_cookie_parser___default()());
+    /**
+     * Error Handler
+     */
     this.express.use((error        , req          , res           , next              ) => {
       if (error) {
         res.locals.message = error.message;
         res.locals.error = req.app.get('env') === 'development' ? error : {};
-
         res.status(error.status || 500);
         res.json({ error: error.message });
       }
@@ -265,48 +198,63 @@ class Application {
   }
 
   routes()       {
-    const mainRouter = new __WEBPACK_IMPORTED_MODULE_4__routes_MainRouter__["a" /* default */]();
-    this.express.use(mainRouter.path, mainRouter.router);
+    const postRouter = new __WEBPACK_IMPORTED_MODULE_6__routes_PostRouter__["a" /* default */]();
+    this.express.use(postRouter.path, postRouter.router);
     this.express.use((req          , res           , next              )       => {
       const err              = new Error('Not Found');
       err.status = 404;
       next(err);
     });
   }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Application;
 
+  start() {
+    this.express.listen(this.port);
+    this.express.on('error', this.onError);
+    this.express.on('listening', this.onListening);
+  }
+}
+
+const app = new Application();
+/* harmony default export */ __webpack_exports__["default"] = (app);
 
 
 /***/ }),
-/* 7 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = require("morgan");
 
 /***/ }),
-/* 8 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("cookie-parser");
 
 /***/ }),
-/* 9 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ }),
-/* 10 */
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("debug");
+
+/***/ }),
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_post__ = __webpack_require__(8);
 /*       */
 
 
-class MainRouter {
+
+class PostRouter {
                  
                
 
@@ -316,22 +264,62 @@ class MainRouter {
     this.init();
   }
 
-  static index(req          , res           )       {
+  static placeholder(req          , res           ) {
     res.status(200).json({
-      success: 'true',
+      success: true,
     });
   }
 
   init()       {
-    this.router.get('/', (req          , res           ) => {
-      res.status(200).json({
-        success: 'true',
-      });
-    });
+    this.router.get('/', PostRouter.placeholder);
   }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = MainRouter;
+/* harmony export (immutable) */ __webpack_exports__["a"] = PostRouter;
 
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mongoose__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mongoose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_mongoose__);
+/*       */
+
+
+const Schema = __WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.Schema;
+/* unused harmony export Schema */
+
+const schema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+  long: {
+    type: Number,
+    required: true,
+  },
+  lat: {
+    type: Number,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+  },
+  updatedAt: {
+    type: Date,
+    required: true,
+  },
+});
+
+const post = __WEBPACK_IMPORTED_MODULE_0_mongoose___default.a.model('Post', schema);
+/* unused harmony default export */ var _unused_webpack_default_export = (post);
 
 
 /***/ })

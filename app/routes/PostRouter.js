@@ -1,7 +1,8 @@
 /* @flow */
 import { Router } from 'express';
+import postModel from '../models/post';
 
-export default class MainRouter {
+export default class PostRouter {
   router: Router;
   path: string;
 
@@ -11,17 +12,13 @@ export default class MainRouter {
     this.init();
   }
 
-  static index(req: $Request, res: $Response): void {
+  static placeholder(req: $Request, res: $Response) {
     res.status(200).json({
-      success: 'true',
+      success: true,
     });
   }
 
   init(): void {
-    this.router.get('/', (req: $Request, res: $Response) => {
-      res.status(200).json({
-        success: 'true',
-      });
-    });
+    this.router.get('/', PostRouter.placeholder);
   }
 }

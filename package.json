@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "clean": "find ./dist -type f ! -name '*.json' -delete",
-    "prestart": "npm run clean",
-    "start": "./node_modules/.bin/webpack --watch",
-    "build": "BUILD=true ./node_modules/.bin/webpack",
-    "deploy": "./deploy.sh"
+    "start": "node dist/bundle.js",
+    "heroku-postbuild": "webpack",
+    "build": "npm run clean; NODE_ENV=development webpack --watch --progress",
+    "deploy": "git push heroku ${git_current_branch}:master"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -16,9 +16,12 @@
     "express": "~4.15.2",
     "mongoose": "^4.11.5",
     "morgan": "~1.8.1",
-    "nodemon": "^1.11.0",
+    "remove-flow-types-loader": "^1.0.0",
     "serve-favicon": "~2.4.2",
-    "source-map-support": "^0.4.15"
+    "source-map-support": "^0.4.15",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
+    "webpack": "^3.4.1",
+    "webpack-shell-plugin": "^0.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -35,9 +38,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "flow-bin": "^0.51.1",
     "flow-remove-types": "^1.2.1",
-    "flow-typed": "^2.1.5",
-    "remove-flow-types-loader": "^1.0.0",
-    "webpack": "^3.4.1",
-    "webpack-shell-plugin": "^0.5.0"
+    "nodemon": "^1.11.0",
+    "flow-typed": "^2.1.5"
   }
 }
